@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Can Ferradura · Private Stables in Ibiza</title>
+<meta name="description" content="A small private stable in the Ibizan countryside between San Carlos and Santa Eulalia. Exclusive rides, beach rides, lessons and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f6f0e4;
+    --sand: #ebe0cc;
+    --olive: #3f4a2e;
+    --clay: #b5603a;
+    --ink: #2b2a25;
+    --muted: #6b665a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: "Karla", system-ui, sans-serif; color: var(--ink); background: var(--cream); line-height: 1.65; font-size: 17px; }
+  h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 600; line-height: 1.2; color: var(--olive); }
+  a { color: var(--clay); }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+  /* Language switching: show only the active language */
+  html[lang="en"] [lang="es"], html[lang="es"] [lang="en"]:not(html) { display: none; }
+
+  /* Nav */
+  nav { position: sticky; top: 0; background: rgba(246,240,228,.95); backdrop-filter: blur(6px); border-bottom: 1px solid var(--sand); z-index: 10; }
+  nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 60px; gap: 16px; }
+  .logo { font-family: "Fraunces", serif; font-size: 1.25rem; font-weight: 600; color: var(--olive); text-decoration: none; white-space: nowrap; }
+  .nav-right { display: flex; align-items: center; gap: 22px; }
+  nav ul { list-style: none; display: flex; gap: 22px; }
+  nav ul a { color: var(--ink); text-decoration: none; font-weight: 500; font-size: .95rem; }
+  nav ul a:hover { color: var(--clay); }
+  .lang-toggle { display: flex; border: 1.5px solid var(--olive); border-radius: 20px; overflow: hidden; }
+  .lang-toggle button { border: 0; background: transparent; color: var(--olive); font: 700 .78rem "Karla", sans-serif; padding: 5px 10px; cursor: pointer; letter-spacing: .04em; }
+  .lang-toggle button.active { background: var(--olive); color: var(--cream); }
+
+  /* Hero */
+  .hero { background: linear-gradient(rgba(43,42,37,.45), rgba(43,42,37,.45)), url("images/hero.jpg") center/cover, var(--olive); color: #fff; text-align: center; padding: 120px 20px 110px; }
+  .hero h1 { color: #fff; font-size: clamp(2.4rem, 6vw, 3.8rem); margin-bottom: 12px; }
+  .hero p { font-size: 1.15rem; max-width: 560px; margin: 0 auto 28px; opacity: .95; }
+  .btn { display: inline-block; background: var(--clay); color: #fff; padding: 13px 28px; border-radius: 40px; text-decoration: none; font-weight: 700; }
+  .btn:hover { background: #9c4f2e; }
+
+  section { padding: 80px 0; }
+  section h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 18px; }
+  .lead { font-size: 1.1rem; max-width: 720px; color: var(--muted); }
+  .alt { background: var(--sand); }
+
+  /* Offers */
+  .offers { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 18px; margin-top: 36px; }
+  .card { background: #fff; border-radius: 14px; padding: 24px; border: 1px solid var(--sand); }
+  .card h3 { font-size: 1.2rem; margin-bottom: 6px; }
+  .card p { color: var(--muted); font-size: .97rem; }
+  .tag { display: inline-block; font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--clay); margin-bottom: 8px; }
+  .extras { margin-top: 40px; }
+  .extras h3 { font-size: 1.3rem; margin-bottom: 14px; }
+  .pills { display: flex; flex-wrap: wrap; gap: 10px; }
+  .pills span { background: var(--cream); border: 1px solid var(--sand); padding: 7px 16px; border-radius: 30px; font-size: .95rem; }
+  .note { margin-top: 32px; padding: 18px 22px; border-left: 4px solid var(--clay); background: #fff; border-radius: 0 10px 10px 0; }
+
+  /* Team */
+  .team { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 36px; }
+  .photo { aspect-ratio: 1; border-radius: 12px; overflow: hidden; background: var(--olive); margin-bottom: 12px; box-shadow: 0 6px 18px rgba(0,0,0,.10); }
+  .photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
+  .member:hover .photo img { transform: scale(1.04); }
+  .member h3 { font-size: 1.35rem; text-align: center; }
+
+  /* Contact */
+  .contact { text-align: center; }
+  .contact .lead { margin: 0 auto 28px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .btn-outline { background: transparent; color: var(--clay); border: 2px solid var(--clay); padding: 11px 26px; }
+  .btn-outline:hover { background: var(--clay); color: #fff; }
+  .langs { margin-top: 26px; color: var(--muted); }
+
+  footer { background: var(--olive); color: var(--sand); text-align: center; padding: 28px 20px; font-size: .9rem; }
+
+  @media (max-width: 760px) {
+    nav ul { display: none; }
+    section { padding: 60px 0; }
+    .hero { padding: 90px 20px 80px; }
+    .team { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .member h3 { font-size: 1.15rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo">Can Ferradura</a>
+    <div class="nav-right">
+      <ul>
+        <li><a href="#about"><span lang="en">About</span><span lang="es">Nosotros</span></a></li>
+        <li><a href="#offer"><span lang="en">Rides</span><span lang="es">Rutas</span></a></li>
+        <li><a href="#team"><span lang="en">Team</span><span lang="es">Equipo</span></a></li>
+        <li><a href="#contact"><span lang="en">Contact</span><span lang="es">Contacto</span></a></li>
+      </ul>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" data-lang="en">ENG</button>
+        <button type="button" data-lang="es">ESP</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <h1>Can Ferradura</h1>
+  <p lang="en">A small private stable in the Ibizan countryside, between San Carlos and Santa Eulalia.</p>
+  <p lang="es">Una pequeña cuadra privada en el campo ibicenco, entre San Carlos y Santa Eulalia.</p>
+  <a href="#contact" class="btn"><span lang="en">Get in touch</span><span lang="es">Contáctanos</span></a>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <h2 lang="en">Greetings from Can Ferradura</h2>
+    <h2 lang="es">Saludos desde Can Ferradura</h2>
+    <p class="lead" lang="en">We are a small private stable in the middle of the Ibizan countryside, with 4 horses and a Shetland pony mascot. We offer pure nature and authentic horse time: no fluff, grounding and pleasant, along with dogs, cats and chickens. Refreshments and snacks are always available.</p>
+    <p class="lead" lang="es">Somos una pequeña cuadra privada en pleno campo ibicenco, con 4 caballos y una poni Shetland como mascota. Ofrecemos naturaleza pura y tiempo auténtico con caballos: sin artificios, relajante y agradable, en compañía de perros, gatos y gallinas. Siempre hay bebidas y algo para picar.</p>
+  </div>
+</section>
+
+<section id="offer" class="alt">
+  <div class="wrap">
+    <h2 lang="en">What we offer</h2>
+    <h2 lang="es">Qué ofrecemos</h2>
+    <div class="offers">
+      <div class="card">
+        <span class="tag"><span lang="en">Beginners</span><span lang="es">Principiantes</span></span>
+        <h3 lang="en">½ hour rides</h3><h3 lang="es">Paseos de ½ hora</h3>
+        <p lang="en">Mainly for young children and first timers.</p>
+        <p lang="es">Sobre todo para niños pequeños y para quien monta por primera vez.</p>
+      </div>
+      <div class="card">
+        <span class="tag"><span lang="en">All levels</span><span lang="es">Todos los niveles</span></span>
+        <h3 lang="en">1 hour rides</h3><h3 lang="es">Paseos de 1 hora</h3>
+        <p lang="en">An hour out in the Ibizan countryside.</p>
+        <p lang="es">Una hora por el campo ibicenco.</p>
+      </div>
+      <div class="card">
+        <span class="tag"><span lang="en">Experienced riders</span><span lang="es">Jinetes con experiencia</span></span>
+        <h3 lang="en">Beach rides</h3><h3 lang="es">Rutas a la playa</h3>
+        <p lang="en">Unplug, reconnect and ride. A 2 to 3 hour ride, so riding experience is needed.</p>
+        <p lang="es">Desconecta, reconecta y cabalga. Es una ruta de 2 a 3 horas, así que hace falta experiencia.</p>
+      </div>
+      <div class="card">
+        <span class="tag"><span lang="en">Learn</span><span lang="es">Aprende</span></span>
+        <h3 lang="en">Riding lessons</h3><h3 lang="es">Clases de equitación</h3>
+        <p lang="en">Packs of 5 lessons, with 1 free.</p>
+        <p lang="es">Bonos de 5 clases, con 1 gratis.</p>
+      </div>
+      <div class="card">
+        <span class="tag"><span lang="en">Connect</span><span lang="es">Conecta</span></span>
+        <h3>Ride &amp; Reset</h3>
+        <p lang="en">A 1 hour ride, after 30 minutes of connecting with your horse: grooming and learning about the herd.</p>
+        <p lang="es">Un paseo de 1 hora, precedido de 30 minutos para conectar con tu caballo: cepillado y conocer la manada.</p>
+      </div>
+      <div class="card">
+        <span class="tag"><span lang="en">Classic</span><span lang="es">Clásico</span></span>
+        <h3 lang="en">Pony and trap outing</h3><h3 lang="es">Paseo en calesa con poni</h3>
+        <p lang="en">A relaxed outing by pony and trap.</p>
+        <p lang="es">Un paseo tranquilo en calesa tirada por poni.</p>
+      </div>
+    </div>
+
+    <div class="extras">
+      <h3 lang="en">We also offer</h3><h3 lang="es">También ofrecemos</h3>
+      <div class="pills" lang="en">
+        <span>Gift vouchers</span><span>Wedding proposals</span><span>Photo shoots</span><span>Picnic rides</span><span>Full moon rides</span><span>Equine therapy</span>
+      </div>
+      <div class="pills" lang="es">
+        <span>Bonos regalo</span><span>Pedidas de mano</span><span>Sesiones de fotos</span><span>Rutas con pícnic</span><span>Rutas con luna llena</span><span>Terapia equina</span>
+      </div>
+    </div>
+
+    <p class="note" lang="en"><strong>All of our rides are exclusive.</strong> We never mix clients or groups.</p>
+    <p class="note" lang="es"><strong>Todas nuestras rutas son exclusivas.</strong> Nunca mezclamos clientes ni grupos.</p>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <h2 lang="en">Meet the team</h2>
+    <h2 lang="es">Conoce al equipo</h2>
+    <div class="team">
+      <div class="member"><div class="photo"><img src="images/mimi.jpg" alt="Mimi"></div><h3>Mimi</h3></div>
+      <div class="member"><div class="photo"><img src="images/frank.jpg" alt="Frank"></div><h3>Frank</h3></div>
+      <div class="member"><div class="photo"><img src="images/gra.jpg" alt="Gra"></div><h3>Gra</h3></div>
+      <div class="member"><div class="photo"><img src="images/rubia.jpg" alt="Rubia"></div><h3>Rubia</h3></div>
+      <div class="member"><div class="photo"><img src="images/gatsby.jpg" alt="Gatsby"></div><h3>Gatsby</h3></div>
+      <div class="member"><div class="photo"><img src="images/apolo.jpg" alt="Apolo"></div><h3>Apolo</h3></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="alt contact">
+  <div class="wrap">
+    <h2 lang="en">Contact us</h2>
+    <h2 lang="es">Contacto</h2>
+    <p class="lead" lang="en">Contact us personally for more information, to book a ride, or to suggest something new. We'll see how we can adapt to your requirements.</p>
+    <p class="lead" lang="es">Escríbenos para más información, para reservar una ruta o para proponernos algo nuevo. Veremos cómo adaptarnos a lo que necesites.</p>
+    <div class="actions">
+      <a href="https://wa.me/34664426602" class="btn"><span lang="en">WhatsApp us</span><span lang="es">Escríbenos por WhatsApp</span></a>
+      <a href="https://share.google/nm142gOgEPSaHsWd1" class="btn btn-outline" target="_blank" rel="noopener"><span lang="en">Find us on the map</span><span lang="es">Cómo llegar</span></a>
+    </div>
+    <p class="langs"><span lang="en">Call</span><span lang="es">Llámanos al</span> <a href="tel:+34664426602">+34 664 426 602</a> <span lang="en">or email</span><span lang="es">o escribe a</span> <a href="mailto:mcapelin@yahoo.es">mcapelin@yahoo.es</a></p>
+    <p class="langs" lang="en">We speak English, Spanish, German, Dutch and French.</p>
+    <p class="langs" lang="es">Hablamos inglés, español, alemán, neerlandés y francés.</p>
+  </div>
+</section>
+
+<footer>© Can Ferradura · San Carlos &amp; Santa Eulalia, Ibiza</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var buttons = document.querySelectorAll('.lang-toggle button');
+    function setLang(lang) {
+      root.lang = lang;
+      buttons.forEach(function (b) { b.classList.toggle('active', b.dataset.lang === lang); });
+      try { localStorage.setItem('lang', lang); } catch (e) {}
+    }
+    var saved = null;
+    try { saved = localStorage.getItem('lang'); } catch (e) {}
+    var browser = (navigator.language || 'en').slice(0, 2) === 'es' ? 'es' : 'en';
+    setLang(saved || browser);
+    buttons.forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.lang); }); });
+  })();
+</script>
+
+</body>
+</html>
