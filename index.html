@@ -87,6 +87,12 @@
     .team { grid-template-columns: repeat(2, 1fr); gap: 14px; }
     .member h3 { font-size: 1.15rem; }
   }
+  .collage { --cols: 4; --gap: 12px; --col: calc((min(100vw, 1100px) - 40px - (var(--cols) - 1) * var(--gap)) / var(--cols));
+    display: grid; grid-template-columns: repeat(var(--cols), 1fr); grid-auto-rows: calc(var(--col) * .75); grid-auto-flow: dense; gap: var(--gap); margin-top: 28px; }
+  .collage img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,.10); display: block; }
+  .collage .tall { grid-row: span 2; }
+  .collage .big { grid-column: span 2; grid-row: span 2; }
+  @media (max-width: 700px) { .collage { --cols: 2; --gap: 10px; } }
 </style>
 </head>
 <body>
@@ -180,6 +186,40 @@
 
     <p class="note" lang="en"><strong>All of our rides are exclusive.</strong> We never mix clients or groups.</p>
     <p class="note" lang="es"><strong>Todas nuestras rutas son exclusivas.</strong> Nunca mezclamos clientes ni grupos.</p>
+  </div>
+</section>
+
+<section id="stables">
+  <div class="wrap">
+    <h2 lang="en">Life at the stables</h2>
+    <h2 lang="es">La vida en la cuadra</h2>
+    <div class="collage">
+      <img class="tall" src="images/stables/trail-ride.jpg" alt="Trail ride between dry-stone walls, seen between the horse's ears" loading="lazy">
+      <img class="big" src="images/stables/dog-cart.jpg" alt="The stable dog next to the pony cart" loading="lazy">
+      <img class="tall" src="images/stables/horse-chickens.jpg" alt="Horse eating hay with the chickens in the paddock" loading="lazy">
+      <img class="tall" src="images/stables/pony-cart.jpg" alt="Harnessing the Shetland pony to the cart" loading="lazy">
+      <img class="tall" src="images/stables/orange-trees.jpg" alt="Orange trees in the field" loading="lazy">
+      <img class="big" src="images/stables/cat.jpg" alt="The stable cat in the sun" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section id="beach" class="alt">
+  <div class="wrap">
+    <h2 lang="en">An escape to the beach</h2>
+    <h2 lang="es">Una escapada a la playa</h2>
+    <div class="collage">
+      <img class="big" src="images/beach/beach-canter-silhouette.jpg" alt="Cantering along the beach at sunset" loading="lazy">
+      <img class="tall" src="images/beach/beach-wading-silhouette.jpg" alt="Horse and rider standing in the sea" loading="lazy">
+      <img class="tall" src="images/beach/beach-with-horse.jpg" alt="Standing with the horse on the beach" loading="lazy">
+      <img src="images/beach/beach-trot.jpg" alt="Trotting along the shore" loading="lazy">
+      <img src="images/beach/beach-pier-silhouette.jpg" alt="Riding past the pier" loading="lazy">
+      <img class="big" src="images/beach/beach-sea-mountains.jpg" alt="Walking through the sea with the hills behind" loading="lazy">
+      <img class="tall" src="images/beach/beach-ride-towards.jpg" alt="Riding across the beach" loading="lazy">
+      <img class="tall" src="images/beach/beach-sea-silhouette.jpg" alt="Silhouette of horse and rider in the water" loading="lazy">
+      <img src="images/beach/beach-sea-wading.jpg" alt="Horse cooling off in the sea" loading="lazy">
+      <img src="images/beach/beach-pines.jpg" alt="Under the pines by the beach" loading="lazy">
+    </div>
   </div>
 </section>
 
